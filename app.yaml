@@ -1,0 +1,18 @@
+command: [
+  "streamlit", 
+  "run",
+  "app.py"
+]
+
+# User authorization scopes - required for the app to act on behalf of users
+# These scopes allow the app to access resources with the user's Unity Catalog permissions
+user_authorization:
+  scopes:
+    - "sql"  # Access SQL warehouses for querying data
+    - "genai.genie"  # Access Genie spaces for AI assistance
+
+env:
+  - name: STREAMLIT_BROWSER_GATHER_USAGE_STATS
+    value: "false"
+  - name: "SERVING_ENDPOINT"
+    valueFrom: "serving-endpoint"
